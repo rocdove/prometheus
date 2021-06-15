@@ -122,7 +122,7 @@ func extrapolatedRate(vals []parser.Value, args parser.Expressions, enh *EvalNod
 	}
 	resultValue = resultValue * (extrapolateToInterval / sampledInterval)
 	if isRate {
-		resultValue = resultValue / ms.Range.Seconds()
+		resultValue = resultValue / extrapolateToInterval
 	}
 
 	return append(enh.Out, Sample{
